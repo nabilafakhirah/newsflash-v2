@@ -1,17 +1,23 @@
 package com.example.newsflashv2.ui.screen.home
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -37,14 +43,23 @@ fun HomeScreen(
             Row(
                 modifier = modifier
                     .fillMaxWidth()
-                    .padding(vertical = 16.dp),
+                    .padding(vertical = 16.dp, horizontal = 8.dp),
                 horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
                     text = stringResource(id = R.string.app_name),
                     style = Typography.h5,
                     textAlign = TextAlign.Center
                 )
+                Spacer(Modifier.weight(1f))
+                Icon(
+                    modifier = Modifier
+                        .size(30.dp)
+                        .clickable { 
+                            navController.navigate(BOOKMARKS_ROUTE) },
+                    painter = painterResource(id = R.drawable.ic_bookmarks),
+                    contentDescription = "",)
             }
         }
     ) {

@@ -32,7 +32,10 @@ fun BookmarkScreen(
 
     Scaffold(
         topBar = {
-            TopBarView(onClickBack = { navController.navigateUp() })
+            TopBarView(
+                pageTitle = "Bookmarks",
+                onClickBack = { navController.navigateUp() }
+            )
         }
     ) {
         Column(
