@@ -7,10 +7,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface NewsApi {
-    companion object {
-        const val BASE_URL = "https://newsapi.org/v2/"
-    }
-
     @GET("everything")
     suspend fun searchNews(
         @Query("apiKey") apiKey: String = BuildConfig.API_KEY,
