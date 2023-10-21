@@ -3,13 +3,13 @@ package com.example.newsflashv2.ui.screen.home
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import com.example.newsflashv2.data.repository.NewsRepository
+import com.example.newsflashv2.domain.GetNewsCategoriesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val repository: NewsRepository
+    private val getNewsCategoriesUseCase: GetNewsCategoriesUseCase,
 ) : ViewModel() {
     private val _state = mutableStateOf(HomeState())
     val state: State<HomeState> = _state
@@ -19,7 +19,7 @@ class HomeViewModel @Inject constructor(
     }
 
     private fun getCategories() {
-        val categories = repository.getNewsCategories()
+        val categories = getNewsCategoriesUseCase.execute()
         _state.value = HomeState(
             categoryList = categories
         )

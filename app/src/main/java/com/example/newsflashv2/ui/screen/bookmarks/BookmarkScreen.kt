@@ -27,7 +27,8 @@ fun BookmarkScreen(
     modifier: Modifier = Modifier,
     viewModel: BookmarkViewModel = hiltViewModel()
 ) {
-    val bookmarkList by viewModel.news.collectAsState(initial = emptyList())
+    val bookmarkFlow = viewModel.state.value.bookmarkList
+    val bookmarkList by bookmarkFlow.collectAsState(initial = emptyList())
 
     Scaffold(
         topBar = {

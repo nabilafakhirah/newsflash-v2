@@ -14,9 +14,6 @@ interface NewsDao {
     @Query("SELECT * FROM $NEWS_TABLE ORDER BY title ASC")
     fun getBookmarkedNews(): Flow<List<NewsEntity>>
 
-    @Query("SELECT * FROM $NEWS_TABLE WHERE url = :url")
-    suspend fun getNews(url: String): NewsEntity
-
     @Insert(onConflict = IGNORE)
     suspend fun addNews(news: NewsEntity)
 

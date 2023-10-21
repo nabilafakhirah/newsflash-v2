@@ -11,10 +11,6 @@ class NewsStorageRepositoryImpl(
         return newsDao.getBookmarkedNews()
     }
 
-    override suspend fun getNews(url: String): NewsEntity {
-        return newsDao.getNews(url)
-    }
-
     override suspend fun addNewsToRoom(newsEntity: NewsEntity) {
         newsDao.addNews(newsEntity)
     }

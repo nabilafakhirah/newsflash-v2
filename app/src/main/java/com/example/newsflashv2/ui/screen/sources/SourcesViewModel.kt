@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.newsflashv2.data.model.SourceResponse
-import com.example.newsflashv2.data.repository.NewsRepository
+import com.example.newsflashv2.domain.GetSourcesByCategoryUseCase
 import com.example.newsflashv2.utils.DataResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SourcesViewModel @Inject constructor(
-    private val repository: NewsRepository
+    private val getSourcesByCategoryUseCase: GetSourcesByCategoryUseCase,
 ) : ViewModel() {
 
     private val _state = mutableStateOf(SourcesState())
@@ -22,7 +22,7 @@ class SourcesViewModel @Inject constructor(
     private var initialSources: List<SourceResponse.Source> = emptyList()
 
     fun getSourcesFromCategory(category: String) {
-        val sourceResponse = repository.getSourcesByCategory(category)
+        val sourceResponse = getSourcesByCategoryUseCase.execute(category)
         sourceResponse.onEach { result ->
             when (result) {
                 is DataResult.Success -> {
