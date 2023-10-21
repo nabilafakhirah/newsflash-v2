@@ -17,6 +17,8 @@ accompanist-suc = "0.17.0"
 retrofit = "2.9.0"
 okhttp3 = "5.0.0-alpha.3"
 paging = "1.0.0-alpha14"
+room = "2.4.0"
+coroutine = "1.5.2"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -50,12 +52,13 @@ logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-intercep
 paging = { group = "androidx.paging", name = "paging-compose", version.ref = "paging" }
 dagger-hilt = { group = "com.google.dagger", name = "hilt-android-gradle-plugin", version.ref = "dagger" }
 kotlin-serialization = { group = "org.jetbrains.kotlin", name = "kotlin-serialization", version.ref = "kotlin" }
+room-common = { group = "androidx.room", name = "room-common", version.ref = "room" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+coroutine = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutine" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
-parcelize = { id = "kotlin-parcelize", version.ref = "kotlin" }
-kapt = { id = "kotlin-kapt", version.ref = "kotlin" }
-daggerHilt = { id = "dagger.hilt.android.plugin", version.ref = "dagger" }
 

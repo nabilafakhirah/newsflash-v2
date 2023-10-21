@@ -97,4 +97,8 @@ dependencies {
     implementation(libs.logging.interceptor)
 
     implementation(libs.paging)
+
+    implementation(libs.room.runtime)
+    implementation(libs.room.common)
+    kapt(libs.room.compiler)
 }
