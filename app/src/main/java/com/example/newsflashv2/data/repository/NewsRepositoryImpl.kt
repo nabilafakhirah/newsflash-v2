@@ -74,6 +74,7 @@ class NewsRepositoryImpl @Inject constructor(
         "Sports",
         "Technology",
         "All",
+        "Bookmarks",
     )
 
 }

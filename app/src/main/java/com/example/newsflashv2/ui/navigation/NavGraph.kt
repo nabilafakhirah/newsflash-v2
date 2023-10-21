@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.newsflashv2.ui.screen.bookmarks.BookmarkScreen
 import com.example.newsflashv2.ui.screen.home.HomeScreen
 import com.example.newsflashv2.ui.screen.newslist.NewsListScreen
 import com.example.newsflashv2.ui.screen.sources.SourcesScreen
@@ -41,6 +42,9 @@ fun NavGraph(
                 navController = navController
             )
         }
+        composable(BOOKMARKS_ROUTE) {
+            BookmarkScreen(navController = navController)
+        }
     }
 }
 
@@ -48,3 +52,4 @@ const val HOME_SCREEN_ROUTE = "home_screen"
 const val SOURCES_SCREEN_ROUTE = "sources_screen_route"
 const val ARTICLES_SCREEN_ROUTE = "articles_screen_route"
 const val ARTICLES_DETAIL_ROUTE = "articles_detail_route"
+const val BOOKMARKS_ROUTE = "bookmarks_route"

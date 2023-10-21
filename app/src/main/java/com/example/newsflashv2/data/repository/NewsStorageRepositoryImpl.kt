@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 class NewsStorageRepositoryImpl(
     private val newsDao: NewsDao
 ) : NewsStorageRepository {
-    override fun getNewsFromRoom(): Flow<NewsEntity> {
+    override fun getNewsFromRoom(): Flow<List<NewsEntity>> {
         return newsDao.getBookmarkedNews()
     }
 

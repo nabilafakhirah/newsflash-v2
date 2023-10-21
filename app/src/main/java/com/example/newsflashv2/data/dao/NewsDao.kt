@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface NewsDao {
     @Query("SELECT * FROM $NEWS_TABLE ORDER BY title ASC")
-    fun getBookmarkedNews(): Flow<NewsEntity>
+    fun getBookmarkedNews(): Flow<List<NewsEntity>>
 
     @Query("SELECT * FROM $NEWS_TABLE WHERE url = :url")
     suspend fun getNews(url: String): NewsEntity

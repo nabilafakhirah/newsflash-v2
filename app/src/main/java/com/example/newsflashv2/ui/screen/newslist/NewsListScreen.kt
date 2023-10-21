@@ -66,7 +66,10 @@ fun NewsListScreen(
             if (newsList != null) {
                 ListContent(
                     news = newsList,
-                    navController = navController
+                    navController = navController,
+                    addToBookmark = {
+                        viewModel.addToBookmark(it)
+                    }
                 )
             }
         }
@@ -78,6 +81,7 @@ fun ListContent(
     news: LazyPagingItems<NewsResponse.Article>,
     navController: NavController,
     modifier: Modifier = Modifier,
+    addToBookmark: (NewsResponse.Article) -> Unit,
 ) {
     val result = handlePagingResult(news = news)
     if (result) {
@@ -94,12 +98,7 @@ fun ListContent(
             ) { news ->
                 news?.let {
                     NewsItemView(
-                        author = it.author.orEmpty(),
-                        title = it.title,
-                        description = it.description,
-                        publishedAt = it.publishedAt,
-                        url = it.url,
-                        urlToImage = it.urlToImage.orEmpty(),
+                        article = it,
                         onClickOpenNews = {
                             val encodedUrl = URLEncoder.encode(it.url, StandardCharsets.UTF_8.toString())
                             navController.navigate(
@@ -108,7 +107,10 @@ fun ListContent(
                                     newValue = encodedUrl
                                 )
                             )
-                        }
+                        },
+                        addToBookmark = { article ->
+                            addToBookmark(article)
+                        },
                     )
                 }
             }

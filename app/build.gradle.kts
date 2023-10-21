@@ -77,6 +77,7 @@ dependencies {
 
     implementation(libs.material.icons)
     implementation(libs.viewmodel)
+    implementation(libs.livedata)
 
     implementation(libs.coil)
 
@@ -97,8 +98,10 @@ dependencies {
     implementation(libs.logging.interceptor)
 
     implementation(libs.paging)
+    implementation(libs.coroutine)
 
     implementation(libs.room.runtime)
     implementation(libs.room.common)
+    implementation(libs.room.ktx)
     kapt(libs.room.compiler)
 }

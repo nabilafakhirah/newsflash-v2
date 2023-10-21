@@ -16,19 +16,19 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.newsflashv2.R
+import com.example.newsflashv2.data.model.NewsEntity
 import com.example.newsflashv2.data.model.NewsResponse
 import com.example.newsflashv2.ui.theme.PurpleGrey80
 import com.example.newsflashv2.ui.theme.Typography
 
 @Composable
-fun NewsItemView(
-    article: NewsResponse.Article,
+fun BookmarkView(
+    article: NewsEntity,
     onClickOpenNews: () -> Unit,
-    addToBookmark: (NewsResponse.Article) -> Unit,
+    removeFromBookmark: (NewsEntity) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -61,9 +61,9 @@ fun NewsItemView(
         ) {
             Text(
                 modifier = Modifier.clickable {
-                    addToBookmark(article)
+                    removeFromBookmark(article)
                 },
-                text = stringResource(id = R.string.add_to_bookmark),
+                text = stringResource(id = R.string.remove_from_bookmark),
                 style = Typography.body1.copy(
                     color = Color.Black,
                     fontWeight = FontWeight.Bold

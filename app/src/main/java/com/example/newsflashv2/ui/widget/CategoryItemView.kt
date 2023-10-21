@@ -25,13 +25,19 @@ import com.example.newsflashv2.ui.theme.Typography
 fun CategoryItemView(
     key: String,
     onClickCategory: () -> Unit,
+    onClickBookmark: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Card(
         modifier = modifier
             .padding(16.dp)
             .clickable {
-                onClickCategory()
+                if(key == "Bookmarks") {
+                    onClickBookmark()
+                }
+                else {
+                    onClickCategory()
+                }
             },
         shape = RoundedCornerShape(8.dp),
         backgroundColor = PurpleGrey80,
@@ -50,6 +56,7 @@ fun CategoryItemView(
                 "Science" -> R.drawable.ic_category_science
                 "Sports" -> R.drawable.ic_category_sports
                 "Technology" -> R.drawable.ic_category_technology
+                "Bookmarks" -> R.drawable.ic_bookmarks
                 else -> R.drawable.ic_category_all
             }
             Image(
@@ -72,5 +79,6 @@ private fun CategoryItemViewPreview() {
     CategoryItemView(
         key = "Business",
         onClickCategory = {},
+        onClickBookmark = {},
     )
 }
