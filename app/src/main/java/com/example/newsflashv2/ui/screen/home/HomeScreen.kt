@@ -1,32 +1,27 @@
 package com.example.newsflashv2.ui.screen.home
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.newsflashv2.R
-import com.example.newsflashv2.ui.navigation.BOOKMARKS_ROUTE
 import com.example.newsflashv2.ui.navigation.SOURCES_SCREEN_ROUTE
 import com.example.newsflashv2.ui.theme.Typography
+import com.example.newsflashv2.ui.widget.BottomNavigationView
 import com.example.newsflashv2.ui.widget.CategoryItemView
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -52,15 +47,10 @@ fun HomeScreen(
                     style = Typography.h5,
                     textAlign = TextAlign.Center
                 )
-                Spacer(Modifier.weight(1f))
-                Icon(
-                    modifier = Modifier
-                        .size(30.dp)
-                        .clickable { 
-                            navController.navigate(BOOKMARKS_ROUTE) },
-                    painter = painterResource(id = R.drawable.ic_bookmarks),
-                    contentDescription = "",)
             }
+        },
+        bottomBar = {
+            BottomNavigationView(navController = navController)
         }
     ) {
         Column(
@@ -81,9 +71,6 @@ fun HomeScreen(
                                 )
                             )
                         },
-                        onClickBookmark = {
-                            navController.navigate(BOOKMARKS_ROUTE)
-                        }
                     )
                 }
             }

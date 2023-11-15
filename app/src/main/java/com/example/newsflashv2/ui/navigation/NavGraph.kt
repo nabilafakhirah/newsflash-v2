@@ -12,38 +12,42 @@ import com.example.newsflashv2.ui.screen.webview.NewsWebView
 
 @Composable
 fun NavGraph(
-    navController: NavHostController
+    navController: NavHostController,
 ) {
     NavHost(
         navController = navController,
         startDestination = HOME_SCREEN_ROUTE
     ) {
         composable(HOME_SCREEN_ROUTE) {
-            HomeScreen(navController)
+            HomeScreen(
+                navController = navController,
+            )
         }
         composable("${SOURCES_SCREEN_ROUTE}/{category}") {
             val category = it.arguments?.getString("category") ?: "All"
             SourcesScreen(
                 navController = navController,
-                category = category
+                category = category,
             )
         }
         composable("${ARTICLES_SCREEN_ROUTE}/{sourceId}") {
             val sourceId = it.arguments?.getString("sourceId") ?: ""
             NewsListScreen(
                 sourceId = sourceId,
-                navController = navController
+                navController = navController,
             )
         }
         composable("${ARTICLES_DETAIL_ROUTE}/{url}") {
             val url = it.arguments?.getString("url") ?: ""
             NewsWebView(
                 url = url,
-                navController = navController
+                navController = navController,
             )
         }
         composable(BOOKMARKS_ROUTE) {
-            BookmarkScreen(navController = navController)
+            BookmarkScreen(
+                navController = navController,
+            )
         }
     }
 }

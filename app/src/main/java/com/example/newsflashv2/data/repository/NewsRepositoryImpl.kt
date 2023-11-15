@@ -51,8 +51,8 @@ class NewsRepositoryImpl @Inject constructor(
             Log.d("SelectedCategory", "Failed to retrieve sources")
             emit(
                 DataResult.Error(
-                message = "Failed to retrieve sources"
-            ))
+                    message = "Failed to retrieve sources"
+                ))
         }
     }
 

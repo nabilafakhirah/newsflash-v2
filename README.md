@@ -6,7 +6,8 @@
 An improved version of my initial program [Newsflash](https://github.com/nabilafakhirah/newsflash). Most notable differences would be:
 - Converted from Groovy to Kotlin DSL with Gradle Plugin
 - Added a UseCase layer to the program
-- Added the ability to locally store your favorite news. You can also delete them from your bookmarks (bookmarks page accessible through home)
+- Added the ability to locally store your favorite news. You can also delete them from your bookmarks!
+- Added bottom navigation bar for clearer navigation to bookmarks
 
 ## What was used
 This app was developed using Kotlin, Jetpack Compose, NewsAPI.org, and also MVVM design pattern.
